@@ -27,12 +27,24 @@
 	
 		返回：
 		
+		状态：200，表示登录成功
+		
+		返回内容：
+		
 		```
-	 	{
-	 		"200":"Ok",
-	 		"401":"please input right username or password"
-	 	}
-	
+		{
+			"message":"Ok"
+		}
+		```
+		
+		状态：401，表示登录信息错误，没有权限登录。
+		
+		返回内容：
+		
+		```
+		{
+			"message":"please input right username or password"
+		}
 		```
 	
 2. `/friend`
@@ -46,11 +58,8 @@
 		```
 		[
 		 {
+		 	"id":1,
 			"name":"xxxx",
-			"portrait":"xxxx"
-		 },
-		 {
-		 	"name":"xxxx",
 			"portrait":"xxxx"
 		 }
 		]
@@ -60,11 +69,11 @@
 	
 	*	POST：
 	
-		参数：用户id、好友id
+		参数：好友id
 		
 		```
 		{
-			"userid":1,
+			"from_userid":1,
 			"to_userid":2
 		}
 		```
@@ -73,6 +82,7 @@
 		
 		```
 		{
+			"id":1,
 			"name":"xxxxx",
 			"portrait":"xxxx"
 		}
@@ -84,21 +94,20 @@
 	
 	* GET：
 	
-		参数：用户id、好友id
+		参数：id
 		
-		```
-			to_userid:req.params.id
-		```
+		>好友id
 	
 		返回：聊天信息,json格式
 		
 		```
 		[
 		  {
-			"message":"xxxxx"
-		  },
-		  {
-			"message":"xxxxx"
+		  	"id":1,
+			"from_userid":2,
+			"to_userid":1,
+			"message":"xxxxx",
+			"time":"1996-4-4"
 		  }
 		]
 		  
@@ -108,17 +117,18 @@
 	
 	*	POST：
 	
-		参数：用户id、好友id
+		参数：id
 		
-		```
-			to_userid:req.params.id
-		```
+	   >好友id
 		
 		返回：用户发送的信息。
 			
 		```
 		{
-			"message":"xxxxx"
+			"from_userid":2,
+			"to_userid":1,
+			"message":"xxxxx",
+			"time":"1996-4-4"
 		}
 		```
 		
@@ -128,14 +138,38 @@
 
   *  GET:
 	
-     获取用户信息：
+    	返回：
 	
 		```
 		{
+			"id":1,
 			"name":"xxxxxx",
 			"portrait":"xxxxxx"
 		}
 		```
+
+5. `/searchUser`
+	
+	搜索用户信息:
+	
+  *	 GET:
+
+  		参数：
+  		
+  		Query:
+  		> name 要搜索的名字
+
+  		返回：
+  		
+  		```
+  		[
+  		  {
+  			"id":1,
+  			"name":"xxxxxx",
+  			"portrait":"xxxxxx"
+  		  }
+  		]
+  		```  	
 
 ###页面路由
 
