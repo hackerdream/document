@@ -18,12 +18,19 @@
 ###API
 
 1. `/login`
-	
-	登录
 
 	*	POST：
 
-		参数：username && password
+		登录
+
+		参数：username 、password
+
+		```
+		{
+			"username":"xxxx",
+			"password":"xxxxxx"
+		}
+		```
 	
 		返回：
 		
@@ -48,10 +55,10 @@
 		```
 	
 2. `/friend`
-
-	获取好友列表:
 	
 	*	GET：
+
+		获取好友列表:
 	
 		返回：用户好友信息
 
@@ -64,10 +71,10 @@
 		 }
 		]
 		```
-		
-	添加好友：
 	
 	*	POST：
+
+		添加好友：
 	
 		参数：好友id
 		
@@ -89,10 +96,10 @@
 		```
 	
 3. `/message/:id`
-
-	获取消息列表：
 	
 	* GET：
+
+		获取消息列表:
 	
 		参数：id
 		
@@ -112,10 +119,10 @@
 		]
 		  
 		```
-		
-	发送消息:
 	
 	*	POST：
+
+		发送消息:
 	
 		参数：id
 		
@@ -134,11 +141,12 @@
 		
 4. `/getUser`
 
-   获得用户信息:
-
   *  GET:
+
+  		获得用户信息:
+  	
+  		返回：
 	
-    	返回：
 	
 		```
 		{
@@ -150,9 +158,9 @@
 
 5. `/searchUser`
 	
-	搜索用户信息:
-	
   *	 GET:
+
+  		搜索用户信息:
 
   		参数：
   		
@@ -197,7 +205,7 @@ create table users(
 用户好友表：
 
 ```
- CREATE TABLE user_friend(
+ CREATE TABLE user_friends(
 	id INTEGER PRIMARY KEY,
 	from_userid INTEGER,
 	to_userid INTEGER
