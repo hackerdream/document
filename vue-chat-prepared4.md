@@ -28,8 +28,10 @@
 		返回：
 		
 		```
-	res.status(200).send('Ok');
-	res.status(401).send('please input right username or password');
+	 	{
+	 		"200":"Ok",
+	 		"401":"please input right username or password"
+	 	}
 	
 		```
 	
@@ -38,14 +40,6 @@
 	获取好友列表:
 	
 	*	GET：
-	
-		参数:用户id
-	
-		```
-			req.session.id	
-		
-		```
-	
 	
 		返回：用户好友信息
 
@@ -99,9 +93,15 @@
 		返回：聊天信息,json格式
 		
 		```
-		{
+		[
+		  {
 			"message":"xxxxx"
-		}
+		  },
+		  {
+			"message":"xxxxx"
+		  }
+		]
+		  
 		```
 		
 	发送消息:
@@ -121,20 +121,21 @@
 			"message":"xxxxx"
 		}
 		```
-4.`/getUser`
+		
+4. `/getUser`
 
-	获得用户信息
+   获得用户信息:
 
-	GET:
+  *  GET:
 	
-	获取用户信息：
+     获取用户信息：
 	
-	```
+		```
 		{
 			"name":"xxxxxx",
 			"portrait":"xxxxxx"
 		}
-	```
+		```
 
 ###页面路由
 
